@@ -19,8 +19,8 @@ jobs:
       - name:  Setup SSH Key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SFTP_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          echo "${{ secrets.SFTP_PRIVATE_KEY }}" > ~/.ssh/galmalka
+          chmod 600 ~/.ssh/galmalka
           ssh-keyscan -H ${{ secrets.SFTP_HOST }} >> ~/.ssh/known_hosts
 
       - name: Transfer Files via SFTP
