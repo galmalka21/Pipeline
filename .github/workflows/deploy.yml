@@ -25,6 +25,6 @@ jobs:
 
       - name: Transfer Files via SFTP
         run: |
-          sftp -i ~/.ssh/authorized_keys -oPort=${{ secrets.SFTP_PORT }} ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_HOST }} << EOF
+          sftp -i ~/.ssh/galmalka -oPort=${{ secrets.SFTP_PORT }} ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_HOST }} << EOF
           put -r index.js ./index.js
           EOF
