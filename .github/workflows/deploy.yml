@@ -22,6 +22,7 @@ jobs:
           echo "${{ secrets.SFTP_PRIVATE_KEY }}" > ~/.ssh/galmalka
           chmod 600 ~/.ssh/galmalka
           ssh-keyscan -H ${{ secrets.SFTP_HOST }} >> ~/.ssh/known_hosts
+          echo "${{ secrets.SFTP_PRIVATE_KEY }}"
 
       - name: Transfer Files via SFTP
         run: |
