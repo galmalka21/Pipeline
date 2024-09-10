@@ -1,0 +1,30 @@
+name: SFTP Deploy to Google Cloud
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install  SSH Client
+        run: sudo apt-get install -y openssh-client
+
+      - name:  Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SFTP_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SFTP_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Transfer Files via SFTP
+        run: |
+          sftp -i ~/.ssh/id_rsa -oPort=${{ secrets.SFTP_PORT }} ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_HOST }} << EOF
+          put -r index.js ./index.js
+          EOF
