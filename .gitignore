@@ -1,0 +1,54 @@
+# Node modules
+node_modules/
+assets/
+files/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# Production build
+dist/
+build/
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+
+# Debug files
+*.local
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Coverage directory used by testing tools like jest
+coverage/
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Typescript
+*.tsbuildinfo
+
+# Optional log directory for projects using PM2
+pids/
+*.pid
+*.seed
